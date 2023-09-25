@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:padding="10dp">
+
+
+        <com.wagona.maths.custom.CustomTextView
+            android:id="@+id/tvServiceName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:minLines="2"
+            android:text="Service Name"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            app:typeface="trebuchet_bold" />
+
+        <ImageView
+            android:id="@+id/ivSelectService"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/radio_button_act" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/deviderLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_below="@+id/headerStrip"
+        android:background="@color/colorPrimaryDark"></View>
+
+</LinearLayout>

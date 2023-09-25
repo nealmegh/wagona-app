@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/headerLayout"
+android:layout_width="match_parent"
+android:layout_height="?attr/actionBarSize"
+android:minHeight="?attr/actionBarSize"
+android:orientation="vertical"
+app:contentInsetStart="0dp">
+
+<com.wagona.maths.custom.CustomTextView xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/textHeader"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:text="Sign In"
+    android:textColor="@color/colorPrimaryDark"
+    android:textSize="@dimen/sp_18"
+    android:textStyle="bold"
+    vFont:typeface="trebuchet_bold" />
+
+<ImageView
+    android:visibility="gone"
+    android:layout_gravity="right"
+    android:id="@+id/imgUpgrade"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:padding="@dimen/dp_10"
+    android:src="@drawable/btn_info" />
+</androidx.appcompat.widget.Toolbar>

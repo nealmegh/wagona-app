@@ -1,0 +1,124 @@
+plugins {
+    id 'com.android.application'
+
+    id 'kotlin-android'
+    id 'kotlin-kapt' // Add this for Kotlin annotation processing
+}
+
+android {
+    namespace 'com.wagona.maths'
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0' // Make sure you have this version installed
+
+    defaultConfig {
+        applicationId 'com.wagona.maths'
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 10
+        versionName '1.0.10'
+        multiDexEnabled true
+
+    }
+
+    signingConfigs {
+        releaseConfig1 {
+            keyAlias 'wagona_maths'
+            keyPassword 'WagonaMaths@123'
+            storeFile file('/home/sotsys-159/Wagona Maths/wagonamaths.jks')
+            storePassword 'WagonaMaths@123'
+        }
+    }
+
+//
+//
+//    buildTypes {
+//        release {
+//            signingConfig signingConfigs.releaseConfig1 // Use the signingConfig here
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//        debug {
+//            debuggable true
+//            minifyEnabled false
+//        }
+//    }
+    buildTypes {
+        release {
+            resValue("string", "base_url", host)
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig1
+        }
+        debug {
+            resValue("string", "base_url", host)
+            debuggable true
+            minifyEnabled false
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    buildFeatures {
+        aidl true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+repositories {
+    maven {
+        url uri('mint-plugin-repo-5.2.5')
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22" // Update to match Kotlin Gradle Plugin version
+
+    // AndroidX dependencies
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.fragment:fragment:1.6.1' // Use the appropriate version
+
+    // Remove the legacy support library and replace it with AndroidX
+    // implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation('org.apache.httpcomponents:httpmime:4.5.6') {
+        exclude module: 'httpclient'
+    }
+
+    implementation project(':wiriseditor')
+    implementation project(':androidtagview')
+
+    implementation 'androidx.multidex:multidex:2.0.1' // Updated to AndroidX
+    implementation 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
+    implementation 'com.splunk:mint-android-sdk:5.2.5'
+    implementation 'io.github.kexanie.library:MathView:0.0.6'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Updated to AndroidX
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1' // Use the latest version
+    implementation 'androidx.customview:customview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.1' // Use the latest version
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.github.Shashank02051997:FancyGifDialog-Android:1.5'
+
+    testImplementation 'junit:junit:4.13.2' // Updated JUnit version
+    androidTestImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+}

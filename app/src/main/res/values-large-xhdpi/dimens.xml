@@ -1,0 +1,59 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="header_height">48dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="dp_2">3.5dp</dimen>
+
+    <dimen name="dp_05">0.7dp</dimen>
+    <dimen name="dp_5">7.5dp</dimen>
+    <dimen name="dp_6">9dp</dimen>
+    <dimen name="dp_8">12dp</dimen>
+    <dimen name="dp_10">15dp</dimen>
+    <dimen name="dp_15">22.5dp</dimen>
+    <dimen name="dp_18">27dp</dimen>
+    <dimen name="dp_20">30dp</dimen>
+    <dimen name="dp_22">33dp</dimen>
+    <dimen name="dp_25">37.5dp</dimen>
+    <dimen name="dp_28">42dp</dimen>
+    <dimen name="dp_30">45dp</dimen>
+    <dimen name="dp_35">52.5dp</dimen>
+    <dimen name="dp_40">60dp</dimen>
+    <dimen name="dp_45">67.5dp</dimen>
+    <dimen name="dp_48">72dp</dimen>
+    <dimen name="dp_50">75dp</dimen>
+    <dimen name="dp_55">82.5dp</dimen>
+    <dimen name="dp_60">90dp</dimen>
+    <dimen name="dp_100">150dp</dimen>
+    <dimen name="dp_110">165dp</dimen>
+    <dimen name="dp_115">172.5dp</dimen>
+
+    <dimen name="dp_m_55">-85dp</dimen>
+    <dimen name="dp_m_20">-28dp</dimen>
+
+
+    <dimen name="dp_360">400dp</dimen>
+
+
+    <!-- Font dimation seprated because its not increase as Dp size-->
+    <dimen name="sp_8">10sp</dimen>
+    <dimen name="sp_10">13sp</dimen>
+    <dimen name="sp_12">16sp</dimen>
+    <dimen name="sp_13">17sp</dimen>
+    <dimen name="sp_14">19sp</dimen>
+    <dimen name="sp_15">20sp</dimen>
+    <dimen name="sp_16">21sp</dimen>
+    <dimen name="sp_18">22sp</dimen>
+    <dimen name="sp_22">30sp</dimen>
+    <dimen name="sp_24">32sp</dimen>
+    <dimen name="sp_42">58sp</dimen>
+
+
+
+</resources>

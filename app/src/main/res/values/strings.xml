@@ -1,0 +1,91 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <string name="app_name">Wagona Maths</string>
+
+    <string name="forgot_text">Enter your Email Address for\nSchool Administration and Wagona Academy Students</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string-array name="forms_array">
+        <item>Select Form</item>
+        <item>Form 1</item>
+        <item>Form 2</item>
+        <item>Form 3</item>
+        <item>Form 4</item>
+    </string-array>
+
+
+    <string name="about1">\nTeaching and learning of Mathematics is a big part of what makes a nation’s education system highly rated the world over. We are offering a unique and highly promising opportunity for children to learn Maths the way it has never been taught by any other online platform before — one that can equal (or even surpass) that of a traditional Mathematics curriculum. We seek to debunk the myth that quality education has to be expensive. One of our key values is that education has to be affordable, enjoyable, challenging and rewarding. Our platform is not a substitute for teachers but compliments the great work that they are doing in schools sometimes with very limited resources. Wagona Maths can host thousands of subscribers who should be able to log onto the platform, take tests and get instant feedback.</string>
+
+
+    <string name="about2">We believe Maths is more than a subject. It is an essential tool for honing a child’s critical thinking skills.\n\n
+            We also believe that every child deserves the right to mathematical education wherever they may be.\n\n
+            By harnessing the power of technology and marrying it with the discipline of Mathematics, we can strengthen a child’s chance to a secure, successful and thriving future.\n\n
+            Expensive education does not always equate to quality education. This is why we dedicated ourselves to making a difference by providing an alternative learning and teaching platform called Wagona Maths.\n\n
+            With the help of modern technology and teaching experts, we have contributed to the way e-learning works making it effective and affordable.\n\n
+          </string>
+
+
+    <string name="about3">To provide children with a chance to become masters of Mathematics through the use of Wagona Maths — our very own online platform that exhaustively teaches the subject in a fresher and much more effective way.\n\n
+      To give children the gift of an educational platform that is both compelling and affordable.\n\n
+      To offer educators an opportunity to engage their students and to provide a platform for independent consolidation and practice.\n\n</string>
+
+    <string name="howitworks1">The idea of establishing a diagnostic E-learning platform is based on the premise that a medical doctor will never say to a patient, “here take this bunch of tablets, one of them will cure your illness.” Instead the doctor will carry out a diagnosis before prescribing just the right medication for the patient. Wagona Maths works on a similar principle. The platform identifies topics that a student is struggling with so that they can concentrate on those instead of re-studying the whole course. At Wagona Maths we call it “Smart Learning”</string>
+
+    <string name="howitworks2">The student landing page contains a summary of current performance, including BRAG report on the last 5 tests taken and a tracking average percentage mark/grade for the form that the student is registered in. The links on the colour coded percentage marks will take the student to the results page of the selected test. The student can then see exactly which questions they got wrong and why.</string>
+
+    <string name="howitworks3">Wagona Maths tests are made up of 10 multiple choice questions which are randomly generated from student selected topics and timed to last for 20 minutes. The student can select one or more topics to be included in the test at a given time. Where necessary a web calculator and working space are available for students to use.The platform keeps a record of student progress on all topics in colour coded format (BRAG colours), highlighting areas of weakness.</string>
+
+    <string name="howitworks4">Student answers are marked automatically and immediately with an option to view correct explanations for every question marked wrong.</string>
+
+    <string name="howitworks5">Students are free to re-take a topic test an unlimited number of times. The platform will keep tracking progress and update the average percentage mark and grade dynamically. The idea is to turn all topics “Green”. According to the Wagona Maths algorithm, the “greener” the BRAG report, the better the prospects for achieving the predicted grade.</string>
+
+    <string name="howitworks6">From the test history page the student can go back to any past test and view the results page exactly as it was on the day the test was taken. Learning Maths has never been more fun.</string>
+
+    <string name="howitworks7">Wagona Maths makes it quite\nhard to fail a maths exam,</string>
+    <string name="howitworks8">Don\'t work  Harder, Work Smarter</string>
+
+
+    <string name="no_network">Service is unreachable, please check your internet connection.</string>
+    <string name="valid_school_name">Please enter valid school name</string>
+    <string name="valid_address_1">Please enter valid Address 1</string>
+    <string name="valid_address_2">Please enter valid address 2</string>
+    <string name="valid_admin_contact">Please enetr valid admin contact</string>
+    <string name="valid_telephone">Please enter valid Telephone Number</string>
+    <string name="valid_web_url">Please enter valid Web Url</string>
+    <string name="valid_number_student">Please enter valid Number of Student</string>
+    <string name="valid_name">Please enter valid name</string>
+    <string name="valid_surne">Please enter valid surname</string>
+    <string name="valid_subject">Please enter valid subject</string>
+    <string name="valid_password">Please enter valid password</string>
+    <string name="valid_conf_password">Please enter valid confirm password</string>
+    <string name="valid_not_match">Password are not match</string>
+    <string name="valid_mobile">Please enter valid mobile number</string>
+    <string name="valid_form">Please select Form (Subject ID)</string>
+    <string name="valid_email_address">Please enter email address</string>
+    <string name="valid_email_pattern">Please enter valid email address</string>
+    <string name="test_end_msg">Are you sure you want to end the test and see your score?</string>
+    <string name="valid_your_message">Please enter valid message</string>
+    <string name="valid_country">Please select Country</string>
+    <string name="valid_syllabus">Please select Syllabus</string>
+
+    <string name="tag"><span>8.61</span></string>
+
+
+    <string name="msg_permissionn">Permission not granted, Please try again.</string>
+    <string name="title_activity_upgrade_account">UpgradeAccountActivity</string>
+    <string name="msg_expire_acc">Your free trial has expired, to continue accessing all content please upgrade your account.</string>
+    <string name="msg_expire_acc_half"></string>
+
+    <string name="msg_expire_acc_remove">Are you sure you want to unsubscribe?</string>
+
+    <string name="assignments">Assignments</string>
+    <string name="noDataFound">No Data Found</string>
+<!--    <string name="base_url">https://wagona.com/</string>-->
+
+</resources>

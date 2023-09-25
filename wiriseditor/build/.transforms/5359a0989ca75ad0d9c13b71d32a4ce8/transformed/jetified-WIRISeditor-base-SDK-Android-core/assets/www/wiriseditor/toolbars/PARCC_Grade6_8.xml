@@ -1,0 +1,83 @@
+<toolbar>
+      <removeTab ref="contextual" />
+      <tab name="Math symbols">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="+"/> <!-- Plus sign -->
+          <item ref="-"/> <!-- Minus sign -->
+          <item ref="&#215;"/> <!-- Times sign -->
+          <item ref="&#247;"/> <!-- Division sign -->
+          <item ref="="/> <!-- Equal -->
+          <item ref="&#8800;"/> <!-- Not equal -->
+          <item ref="&#177;"/> <!-- Plus-minus sign -->
+          <item ref="negativeSign"/> <!-- Negative sign -->
+          <item ref="&#183;"/> <!-- Times dot -->
+          <item ref="/"/> <!-- Division slash -->
+          <item ref="%"/> <!-- Percent sign -->
+        </section>
+        <section rows="2">
+          <item ref="squareRoot"/> <!-- Square root -->
+          <item ref="cubeRoot"/> <!-- Cube root -->
+          <item ref="superscript"/> <!-- Power -->
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="fraction"/> <!-- Fraction -->
+          <item ref="mixedNumber"/> <!-- Mixed number -->
+          <item ref="parenthesis"/> <!-- Parenthesis -->
+          <item ref="verticalBar"/> <!-- Absolute value -->
+          <item ref="squareBracket"/> <!-- Bracket -->
+        </section>
+        <section rows="3">
+          <item ref="numberPi"/> <!-- Constant pi -->
+          <item ref="&#176;"/> <!-- Degree sign -->
+        </section>
+      </tab>
+      <tab name="Relations">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="="/> <!-- Equal -->
+          <item ref="&#8800;"/> <!-- Not equal -->
+          <item ref="&#60;"/> <!-- Less than -->
+          <item ref=">"/> <!-- Greater than -->
+          <item ref="&#8804;"/> <!-- Less than or equal -->
+          <item ref="&#8805;"/> <!-- Greater than or equal -->
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="&#8764;"/> <!-- Similar -->
+          <item ref="&#8769;"/> <!-- Not similar -->
+          <item ref="&#8776;"/> <!-- Approximately equal -->
+          <item ref="&#x2249;"/> <!-- Not approximately equal -->
+          <item ref="&#8773;"/> <!-- Congruent -->
+          <item ref="notCongruent"/> <!-- Not congruent -->
+        </section>
+      </tab>
+      <tab name="Geometry">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="rightArrowAccent"/> <!-- Ray -->
+          <item ref="rightLeftArrowAccent"/> <!-- Line -->
+          <item ref="barAccent"/> <!-- Line segment -->
+        </section>
+        <section rows="3" layout="vertical">
+          <item ref="&#9649;"/> <!-- Parallelogram -->
+          <item ref="&#8736;"/> <!-- Angle -->
+          <item ref="&#8741;"/> <!-- Parallel -->
+          <item ref="&#9651;"/> <!-- Triangle -->
+          <item ref="&#8737;"/> <!-- Angle Measure -->
+          <item ref="&#8869;"/> <!-- Perpendicular -->
+          <item ref="&#8857;"/> <!-- Circle -->
+        </section>
+      </tab>
+    </toolbar>
