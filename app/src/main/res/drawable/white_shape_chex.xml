@@ -1,0 +1,32 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+            android:src="@drawable/sqaure"
+            android:tileMode="repeat">
+
+        </bitmap>
+    </item>
+    <!--    <item>
+            <shape
+                android:shape="rectangle"
+                android:useLevel="false">
+                <stroke
+                    android:width="2dp"
+                    android:color="@color/arc_gray" />
+
+                <solid android:color="@android:color/transparent" />
+
+                <corners
+                    android:bottomLeftRadius="20dp"
+                    android:bottomRightRadius="20dp"
+                    android:topLeftRadius="20dp"
+                    android:topRightRadius="20dp" />
+
+            </shape>
+        </item>-->
+
+</layer-list>
+
+
+

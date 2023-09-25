@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="com.wagona.maths.MainActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_25">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/white_shape"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20">
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:drawableLeft="@drawable/instruction_1"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="This test contains 10 questions."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_2"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="For multiple choice questions, there is one correct answer."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_3"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="You have 20 minutes to complete this test."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_4"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="Make sure you attempt all the questions."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_5"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="Do not use the browser back button while taking this test."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_6"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="The timer of the test will not stop once the test starts."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_7"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="Modern web browsers improve the test experience."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_8"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="The test questions are in English language."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:drawableLeft="@drawable/instruction_9"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="Where necessary use our web calculator at the top of the question."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_regular" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/footerStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_m_20"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:id="@+id/textTakeTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/button_round_1"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:paddingLeft="@dimen/dp_25"
+                    android:paddingRight="@dimen/dp_25"
+                    android:paddingTop="@dimen/dp_5"
+                    android:text="Start the Test"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_regular" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:id="@+id/txtTestHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:drawableLeft="@drawable/test_history"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:gravity="center"
+                    android:text="Test History"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_regular" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

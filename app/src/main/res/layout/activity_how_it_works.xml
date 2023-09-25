@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant_bg"
+    tools:context="com.wagona.maths.MainActivity">
+
+    <include
+        android:id="@+id/headerStrip"
+        layout="@layout/header_stub" />
+
+    <View
+        android:id="@+id/deviderLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_below="@+id/headerStrip"
+        android:background="@color/colorPrimaryDark">
+
+    </View>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footerStrip"
+        android:layout_below="@+id/deviderLine">
+
+        <LinearLayout
+
+            android:id="@+id/containerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headerStrip"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <com.wagona.maths.custom.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="@string/howitworks1"
+                android:textColor="@color/dark_font"
+                android:textSize="@dimen/sp_14"
+
+                vFont:typeface="trebuchet_regular" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_20"
+                android:elevation="@dimen/dp_10"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20"
+                >
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:gravity="center"
+                    android:text="Students Landing Page"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_22"
+                    vFont:typeface="trebuchet_bold" />
+
+
+                <View
+
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@drawable/shadow_bg">
+
+                </View>
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="@string/howitworks2"
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_regular" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:src="@drawable/howitwork_1" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_20"
+                android:elevation="@dimen/dp_10"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20"
+                >
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:gravity="center"
+                    android:text="Taking Tests"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_22"
+                    vFont:typeface="trebuchet_bold" />
+
+
+                <View
+
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@drawable/shadow_bg">
+
+                </View>
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="@string/howitworks3"
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_regular" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:src="@drawable/howitwork_2" />
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="@string/howitworks4"
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_regular" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:src="@drawable/howitwork_3" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_20"
+                android:elevation="@dimen/dp_10"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20">
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:gravity="center"
+                    android:text="Test History"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_22"
+                    vFont:typeface="trebuchet_bold" />
+
+
+                <View
+
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@drawable/shadow_bg">
+
+                </View>
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="@string/howitworks5"
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+
+                    vFont:typeface="trebuchet_regular" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:src="@drawable/howitwork_4"
+                     />
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="@string/howitworks6"
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_regular" />
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:gravity="center"
+                    android:text="@string/howitworks7"
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_bold" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:gravity="center"
+                    android:text="@string/howitworks8"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_bold" />
+
+            </LinearLayout>
+
+            <com.wagona.maths.custom.CustomTextView
+                android:id="@+id/textletStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_20"
+
+                android:background="@drawable/button_round_1"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_6"
+                android:paddingLeft="@dimen/dp_30"
+                android:paddingRight="@dimen/dp_30"
+                android:paddingTop="@dimen/dp_6"
+                android:text="Let's Start"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_18"
+                vFont:typeface="trebuchet_bold" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <ImageView
+        android:id="@+id/footerStrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/numbers_falling" />
+
+
+</RelativeLayout>

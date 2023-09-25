@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="com.wagona.maths.MainActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_25">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/white_shape"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_20">
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Black"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_bold" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Insufficient questions attempted to assess topic knowledge."
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Red"
+                    android:textColor="@color/arc_red"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_bold" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Topic of high concern requiring urgent attention (0%-49%)."
+                    android:textColor="@color/arc_red"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Orange"
+                    android:textColor="@color/arc_orange"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_bold" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Topic of medium concern requiring moderate attention (50% - 74%)."
+                    android:textColor="@color/arc_orange"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Green"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_bold" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="Topic of low concern requiring little attention (75%-100%)."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_12"
+                    vFont:typeface="trebuchet_bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="The Wagona Maths algorithm encourages the student to practise regularly. Colours may change to reflect inconsistency in revising topics."
+                    android:textColor="@color/dark_font"
+                    android:textSize="@dimen/sp_14"
+                    vFont:typeface="trebuchet_regular" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/footerStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_m_20"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:id="@+id/textTakeTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/button_round_1"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/dp_5"
+                    android:paddingLeft="@dimen/dp_25"
+                    android:paddingRight="@dimen/dp_25"
+                    android:paddingTop="@dimen/dp_5"
+                    android:text="Start the Test"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_regular" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:id="@+id/txtTestHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/test_history"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:gravity="center"
+                    android:text="Test History"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_regular" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

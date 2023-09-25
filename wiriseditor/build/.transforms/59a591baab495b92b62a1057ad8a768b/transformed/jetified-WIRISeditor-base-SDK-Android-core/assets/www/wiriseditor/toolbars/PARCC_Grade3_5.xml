@@ -1,0 +1,32 @@
+<toolbar>
+    <tab name="Math symbols">
+    <section rows="1" layout="vertical">
+      <item ref="undo"/> 
+      <item ref="redo"/> 
+      <item ref="deleteAll"/> 
+      </section>
+    <section rows="1" layout="vertical">
+      <item ref="+"/> <!-- Plus sign -->
+      <item ref="-"/> <!-- Minus sign -->
+      <item ref="&#215;"/> <!-- Times sign -->
+      <item ref="&#247;"/> <!-- Division sign -->
+        </section>
+        <section rows="1" layout="vertical">
+          <item ref="fraction"/> <!-- Fraction -->
+          <item ref="mixedNumber"/> <!-- ***Mixed number -->
+          <item ref="parenthesis"/> <!-- Parenthesis -->
+          <item ref="squareBracket"/> <!-- Bracket -->
+        </section> 
+        <section rows="1" layout="vertical">
+          <item ref="="/> <!-- Equal -->
+          <item ref="&#60;"/> <!-- Less than -->
+          <item ref=">"/> <!-- Greater than -->
+          <item ref="&#8800;"/> <!-- Not equal -->
+        </section>
+        <section rows="1" layout="vertical">
+          <item ref="dollar"/> <!-- Dollar sign -->
+          <item ref="&#176;"/> <!-- Degree sign -->
+          <item ref="questionMark"/> <!-- Unknown number -->
+        </section>
+      </tab>
+    </toolbar>

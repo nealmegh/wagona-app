@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dp_8"
+            android:weightSum="2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:id="@+id/txtAssignment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_assignment_late_prime_24dp"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:text="@string/assignments"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_18"
+                    android:layout_marginTop="@dimen/dp_10"
+                    vFont:typeface="trebuchet_regular" />
+
+                <TextView
+                    android:id="@+id/tvNoOfAssignments"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:backgroundTint="@color/arc_red"
+                    android:background="@drawable/qus_red_round_border"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp_15"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_horizontal"
+                android:layout_weight="1">
+
+                <com.wagona.maths.custom.CustomTextView
+
+                    android:id="@+id/txtTestHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:drawableLeft="@drawable/test_history"
+                    android:drawablePadding="@dimen/dp_15"
+                    android:gravity="center"
+                    android:text="Test History"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_18"
+                    vFont:typeface="trebuchet_regular"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_with_shadow"
+            android:orientation="vertical"
+            android:layout_marginTop="-20dp"
+            android:paddingLeft="@dimen/dp_30"
+            android:paddingRight="@dimen/dp_30"
+            android:paddingTop="@dimen/dp_30">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_100"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_100">
+
+                    <com.wagona.maths.custom.ArcProgress
+                        android:id="@+id/arc_progress"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="@dimen/dp_100"
+                        android:background="@android:color/transparent"
+                        custom:arc_finished_color="@color/arc_red"
+                        custom:arc_progress="50"
+                        custom:arc_suffix_text_padding="0dp"
+                        custom:arc_text_color="@color/arc_red"
+                        custom:arc_text_size="@dimen/sp_22"
+                        custom:arc_unfinished_color="@color/arc_gray" />
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/textPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="50%"
+                        android:textColor="@color/arc_red"
+                        android:textSize="@dimen/sp_14"
+                        vFont:typeface="trebuchet_bold" />
+                </RelativeLayout>
+
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:textSize="@dimen/sp_14"
+                    android:id="@+id/txtGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/round"
+                    android:gravity="center"
+                    android:text="C"
+                    android:textColor="@color/arc_red"
+                    vFont:typeface="trebuchet_bold" />
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/layoutTest1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5">
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestName1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Test 12"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/sp_18"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestDate1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_toLeftOf="@+id/arc_progress_layout1"
+
+                        android:text="17 March,2016"
+                        android:textColor="@color/dark_font"
+                        android:textSize="@dimen/sp_12"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <RelativeLayout
+                        android:id="@+id/arc_progress_layout1"
+                        android:layout_width="@dimen/dp_45"
+                        android:layout_height="@dimen/dp_45"
+                        android:layout_alignParentRight="true">
+
+                        <com.wagona.maths.custom.ArcProgress
+                            android:id="@+id/arc_progress1"
+                            android:layout_width="@dimen/dp_45"
+                            android:layout_height="@dimen/dp_45"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            custom:arc_finished_color="@color/arc_red"
+                            custom:arc_progress="40"
+                            custom:arc_stroke_width="3dp"
+                            custom:arc_suffix_text_padding="-8dp"
+                            custom:arc_text_color="@color/arc_red"
+                            custom:arc_text_size="@dimen/sp_12"
+                            custom:arc_unfinished_color="@color/arc_gray" />
+
+                        <com.wagona.maths.custom.CustomTextView
+                            android:id="@+id/textPercent1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/arc_red"
+                            android:textSize="@dimen/sp_10"
+                            vFont:typeface="trebuchet_bold" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <RelativeLayout
+                    android:id="@+id/layoutTest2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5">
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Test 13"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/sp_18"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestDate2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_toLeftOf="@+id/arc_progress_layout2"
+
+                        android:text="17 March,2016"
+                        android:textColor="@color/dark_font"
+                        android:textSize="@dimen/sp_12"
+                        vFont:typeface="trebuchet_bold" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/arc_progress_layout2"
+                        android:layout_width="@dimen/dp_45"
+                        android:layout_height="@dimen/dp_45"
+                        android:layout_alignParentRight="true">
+
+                        <com.wagona.maths.custom.ArcProgress
+                            android:id="@+id/arc_progress2"
+                            android:layout_width="@dimen/dp_45"
+                            android:layout_height="@dimen/dp_45"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            custom:arc_finished_color="@color/arc_orange"
+                            custom:arc_progress="71"
+                            custom:arc_stroke_width="3dp"
+                            custom:arc_suffix_text_padding="-8dp"
+                            custom:arc_text_color="@color/arc_orange"
+                            custom:arc_text_size="@dimen/sp_12"
+                            custom:arc_unfinished_color="@color/arc_gray" />
+
+                        <com.wagona.maths.custom.CustomTextView
+                            android:id="@+id/textPercent2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="71%"
+                            android:textColor="@color/arc_orange"
+                            android:textSize="@dimen/sp_10"
+                            vFont:typeface="trebuchet_bold" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+                <RelativeLayout
+                    android:id="@+id/layoutTest3"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5">
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestName3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Test 14"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/sp_18"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestDate3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_toLeftOf="@+id/arc_progress_layout3"
+
+                        android:text="17 March,2016"
+                        android:textColor="@color/dark_font"
+                        android:textSize="@dimen/sp_12"
+                        vFont:typeface="trebuchet_bold" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/arc_progress_layout3"
+                        android:layout_width="@dimen/dp_45"
+                        android:layout_height="@dimen/dp_45"
+                        android:layout_alignParentRight="true">
+
+                        <com.wagona.maths.custom.ArcProgress
+                            android:id="@+id/arc_progress3"
+                            android:layout_width="@dimen/dp_45"
+                            android:layout_height="@dimen/dp_45"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            custom:arc_finished_color="@color/arc_red"
+                            custom:arc_progress="30"
+                            custom:arc_stroke_width="3dp"
+                            custom:arc_suffix_text_padding="-8dp"
+                            custom:arc_text_color="@color/arc_red"
+                            custom:arc_text_size="@dimen/sp_12"
+                            custom:arc_unfinished_color="@color/arc_gray" />
+
+                        <com.wagona.maths.custom.CustomTextView
+                            android:id="@+id/textPercent3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="30%"
+                            android:textColor="@color/arc_red"
+                            android:textSize="@dimen/sp_10"
+                            vFont:typeface="trebuchet_bold" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <RelativeLayout
+                    android:id="@+id/layoutTest4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5">
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestName4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Test 15"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/sp_18"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestDate4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_toLeftOf="@+id/arc_progress_layout4"
+
+                        android:text="17 March,2016"
+                        android:textColor="@color/dark_font"
+                        android:textSize="@dimen/sp_12"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <RelativeLayout
+                        android:id="@+id/arc_progress_layout4"
+                        android:layout_width="@dimen/dp_45"
+                        android:layout_height="@dimen/dp_45"
+                        android:layout_alignParentRight="true">
+
+                        <com.wagona.maths.custom.ArcProgress
+                            android:id="@+id/arc_progress4"
+                            android:layout_width="@dimen/dp_45"
+                            android:layout_height="@dimen/dp_45"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            custom:arc_finished_color="@color/colorPrimaryDark"
+                            custom:arc_progress="100"
+                            custom:arc_stroke_width="3dp"
+                            custom:arc_suffix_text_padding="-8dp"
+                            custom:arc_text_color="@color/colorPrimaryDark"
+                            custom:arc_text_size="@dimen/sp_12"
+                            custom:arc_unfinished_color="@color/arc_gray" />
+
+                        <com.wagona.maths.custom.CustomTextView
+                            android:id="@+id/textPercent4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="100%"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/sp_10"
+                            vFont:typeface="trebuchet_bold" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@color/colorPrimaryDark"></View>
+
+                <RelativeLayout
+                    android:id="@+id/layoutTest5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_5">
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestName5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Test 17"
+                        android:textColor="@color/arc_red"
+                        android:textSize="@dimen/sp_18"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <com.wagona.maths.custom.CustomTextView
+                        android:id="@+id/txtTestDate5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:layout_toLeftOf="@+id/arc_progress_layout5"
+                        android:text="Pending"
+                        android:textColor="@color/arc_red"
+                        android:textSize="@dimen/sp_12"
+                        custom:arc_suffix_text_padding="-8dp"
+                        vFont:typeface="trebuchet_bold" />
+
+                    <RelativeLayout
+                        android:id="@+id/arc_progress_layout5"
+                        android:layout_width="@dimen/dp_45"
+                        android:layout_height="@dimen/dp_45"
+                        android:layout_alignParentRight="true">
+
+                        <com.wagona.maths.custom.ArcProgress
+                            android:id="@+id/arc_progress5"
+                            android:layout_width="@dimen/dp_45"
+                            android:layout_height="@dimen/dp_45"
+                            android:layout_centerVertical="true"
+                            android:background="@android:color/transparent"
+                            custom:arc_finished_color="@color/arc_gray"
+                            custom:arc_progress="0"
+                            custom:arc_stroke_width="3dp"
+                            custom:arc_suffix_text_padding="-8dp"
+                            custom:arc_text_color="@color/colorPrimaryDark"
+                            custom:arc_text_size="@dimen/sp_12"
+                            custom:arc_unfinished_color="@color/arc_gray" />
+
+                        <com.wagona.maths.custom.CustomTextView
+                            android:id="@+id/textPercent5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="00%"
+                            android:textColor="@color/dark_font"
+                            android:textSize="@dimen/sp_10"
+                            vFont:typeface="trebuchet_bold" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:background="@color/colorPrimaryDark"></View>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_m_55"
+            android:orientation="vertical">
+
+            <com.wagona.maths.custom.CustomTextView
+
+                android:id="@+id/textTakeTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/button_round_1"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingLeft="@dimen/dp_25"
+                android:paddingRight="@dimen/dp_25"
+                android:paddingTop="@dimen/dp_5"
+                android:text="Take a Test"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_18"
+                vFont:typeface="trebuchet_regular" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+

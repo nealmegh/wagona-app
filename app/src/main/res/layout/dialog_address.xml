@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_45"
+        android:paddingRight="@dimen/dp_45">
+
+        <com.wagona.maths.custom.CustomTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_40"
+            android:gravity="center"
+            android:text="Social Channels"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/sp_22"
+            vFont:typeface="trebuchet_bold" />
+
+        <View
+            android:id="@+id/viewBar"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_05"
+            android:layout_below="@+id/txtTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="@drawable/shadow_bg">
+
+        </View>
+
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:id="@+id/socialContain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/viewBar"
+            android:layout_marginBottom="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_20"
+            android:orientation="vertical">
+
+            <com.wagona.maths.custom.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="Wagona Maths"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_22"
+                vFont:typeface="trebuchet_bold" />
+
+            <com.wagona.maths.custom.CustomTextView
+                android:id="@+id/textContactAddress"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="34 New house\n97-98 hatton Garden\nLONDON, EC1N 7JY\nUnited Kingdom"
+                android:textColor="@color/dark_font"
+                android:textSize="@dimen/sp_14"
+                vFont:typeface="trebuchet_regular" />
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

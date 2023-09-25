@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_null_data"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/img_error_null_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_info" />
+
+    <com.wagona.maths.custom.CustomTextView
+        android:id="@+id/txt_error_null_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/dp_5"
+        android:text="@string/noDataFound"
+        android:textColor="@color/dark_font"
+        android:textSize="@dimen/sp_18"
+        vFont:typeface="trebuchet_bold" />
+</LinearLayout>

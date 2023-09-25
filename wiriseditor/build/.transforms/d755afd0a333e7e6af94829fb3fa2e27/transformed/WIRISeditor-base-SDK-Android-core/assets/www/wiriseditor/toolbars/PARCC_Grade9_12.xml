@@ -1,0 +1,175 @@
+<toolbar>
+      <removeTab ref="contextual" />
+      <tab name="Math symbols">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="+"/> <!-- Plus sign -->
+          <item ref="-"/> <!-- Minus sign -->
+          <item ref="&#215;"/> <!-- Times sign -->
+          <item ref="&#247;"/> <!-- Division sign -->
+          <item ref="="/> <!-- Equal -->
+          <item ref="&#8800;"/> <!-- Not equal -->
+          <item ref="&#177;"/> <!-- Plus-minus sign -->
+          <item ref="negativeSign"/> <!-- Negative sign -->
+          <item ref="&#183;"/> <!-- Times dot -->
+          <item ref="/"/> <!-- Division slash -->
+          <item ref="%"/> <!-- Percent sign -->
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="fraction"/> <!-- Fraction -->
+          <item ref="mixedNumber"/> <!-- Mixed number -->
+          <item ref="parenthesis"/> <!-- Parenthesis -->
+        </section>
+        <section rows="2">
+          <item ref="squareRoot"/> <!-- Square root -->
+          <item ref="cubeRoot"/> <!-- Cube root -->
+          <item ref="nRoot"/> <!-- General root -->
+          <item ref="superscript"/> <!-- Power -->
+        </section>
+        <section rows="2" layout="vertical">  
+          <item ref="log"/> <!-- Common logarithm -->
+          <item ref="nlog"/> <!-- General logarithm -->
+          <item ref="naturalLog"/> <!-- Natural logarithm -->
+          <item ref="exponential"/> <!-- Exponential -->
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="parccImaginaryI"/> <!-- Imaginary i -->
+          <item ref="exponentialE"/> <!-- Exponential e -->
+          <item ref="numberPi"/> <!-- Constant pi -->
+          <item ref="&#176;"/> <!-- Degree sign -->
+          <item ref="&#8734;"/> <!-- Infinity -->
+        </section>
+      </tab>
+      <tab name="Relations">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="="/> <!-- Equal -->
+          <item ref="&#8800;"/> <!-- Not equal -->
+          <item ref="&#60;"/> <!-- Less than -->
+          <item ref=">"/> <!-- Greater than -->
+          <item ref="&#8804;"/> <!-- Less than or equal -->
+          <item ref="&#8805;"/> <!-- Greater than or equal -->
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="&#8764;"/> <!-- Similar -->
+          <item ref="&#8769;"/> <!-- Not similar -->
+          <item ref="&#8776;"/> <!-- Approximately equal -->
+          <item ref="&#x2249;"/> <!-- Not approximately equal -->
+          <item ref="&#8773;"/> <!-- Congruent -->
+          <item ref="notCongruent"/> <!-- Not congruent -->
+        </section>
+        <section rows="3" layout="vertical">
+          <item ref="&#8756;"/> <!-- Therefore -->
+        </section>
+      </tab>
+      <tab name="Geometry">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="rightArrowAccent"/> <!-- Ray -->
+          <item ref="rightLeftArrowAccent"/> <!-- Line -->
+          <item ref="barAccent"/> <!-- Line segment -->
+          <item ref="upParenthesis" /> <!-- Arc -->
+        </section>
+        <section rows="3" layout="horizontal">
+          <item ref="&#9649;"/> <!-- Parallelogram -->
+          <item ref="&#8736;"/> <!-- Angle -->
+          <item ref="&#8741;"/> <!-- Parallel -->
+          <item ref="&#9651;"/> <!-- Triangle -->
+          <item ref="&#8737;"/> <!-- Angle Measure -->
+          <item ref="&#8869;"/> <!-- Perpendicular -->
+          <item ref="&#8857;"/> <!-- Circle -->
+        </section>
+      </tab>
+      <tab name="Groups">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="parenthesis"/> <!-- Parenthesis -->
+          <item ref="squareBracket"/> <!-- Bracket -->
+          <item ref="curlyBracket"/> <!-- Brace -->
+          <item ref="verticalBar"/> <!-- Absolute value -->
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="openInterval"/> <!-- Open interval -->
+          <item ref="closedInterval"/> <!-- Closed interval -->
+          <item ref="openClosedInterval"/> <!-- Open-closed interval -->
+          <item ref="closedOpenInterval"/> <!-- Closed-open interval -->
+        </section>
+      </tab>
+      <tab name="Trigonometry">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="2" layout="horizontal">
+          <item ref="sinus"/> <!-- Sine -->
+          <item ref="cosinus"/> <!-- Cosine -->
+          <item ref="tangent"/> <!-- Tangent -->
+          <item ref="secant"/> <!-- Bracket -->
+          <item ref="cosecant"/> <!-- Cosecant -->
+          <item ref="cotangent"/> <!-- Cotangent -->
+        </section>
+        <section rows="2" layout="horizontal">
+          <item ref="arcsinus"/> <!-- Inverse sine -->
+          <item ref="arccosinus"/> <!-- Inverse cosinus -->
+          <item ref="arctangent"/> <!-- Inverse tangent -->
+          <item ref="inverseSecant"/> <!-- Inverse secant -->
+          <item ref="inverseCosecant"/> <!-- Inverse cosecant -->
+          <item ref="inverseCotangent"/> <!-- Inverse cotangent -->
+        </section>
+      </tab>
+      <tab name="Statistics">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="meanOfX"/> <!-- ***Mean of x -->
+          <item ref="meanOfY"/> <!-- ***Mean of y -->
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="superscript"/> <!-- Supercript -->
+          <item ref="subscript"/> <!-- Subscript -->
+        </section>
+        <section rows="2" layout="vertical">
+          <item ref="sumUnderover"/> <!-- Summation -->
+          <item ref="!"/> <!-- Factorial -->
+        </section>
+        <section rows="3" layout="vertical">
+          <item ref="&#956;"/> <!-- Mean -->
+          <item ref="&#963;"/> <!-- Standard deviation -->
+        </section>
+      </tab>
+      <tab name="Greek">
+        <section rows="3" layout="vertical">
+          <item ref="undo"/> 
+          <item ref="redo"/> 
+          <item ref="deleteAll"/> 
+        </section>
+        <section rows="3" layout="vertical">
+          <item ref="&#945;"/> <!-- Alpha -->
+          <item ref="&#946;"/> <!-- Beta -->
+          <item ref="&#947;"/> <!-- Gamma -->
+          <item ref="&#948;"/> <!-- ***Mean of y -->
+          <item ref="&#952;"/> <!-- Theta -->
+          <item ref="numberPi"/> <!-- Pi -->
+        </section>
+      </tab>
+    </toolbar>

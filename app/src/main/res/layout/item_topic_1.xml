@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp_5">
+
+
+    <com.wagona.maths.custom.CustomCheckbox
+        android:id="@+id/checkBoxTopics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Real Numbers"
+        android:textColor="@color/arc_red"
+        android:textSize="@dimen/sp_14"
+        vFont:typeface="trebuchet_regular" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.wagona.maths.custom.CustomCheckbox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/sp_14"
+            android:visibility="invisible"
+            vFont:typeface="trebuchet_regular" />
+
+        <com.wagona.maths.custom.CustomTextView
+
+            android:id="@+id/txtQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="0.25"
+            android:drawableLeft="@drawable/question"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:text="360"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/sp_12"
+            vFont:typeface="trebuchet_bold" />
+
+        <com.wagona.maths.custom.CustomTextView
+            android:id="@+id/txtCurrect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="0.25"
+            android:drawableLeft="@drawable/right_ans"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:text="250"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/sp_12"
+            vFont:typeface="trebuchet_bold" />
+
+        <com.wagona.maths.custom.CustomTextView
+            android:id="@+id/txtWrong"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="0.25"
+            android:drawableLeft="@drawable/wrong_ans"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:text="160"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/sp_12"
+            vFont:typeface="trebuchet_bold" />
+
+        <com.wagona.maths.custom.CustomTextView
+            android:id="@+id/txtPercentQ"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="0.25"
+            android:drawableLeft="@drawable/per_ans"
+            android:drawablePadding="@dimen/dp_5"
+            android:gravity="center_vertical"
+            android:text="85%"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/sp_12"
+            vFont:typeface="trebuchet_bold" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/colorPrimaryDark">
+
+    </View>
+
+</LinearLayout>

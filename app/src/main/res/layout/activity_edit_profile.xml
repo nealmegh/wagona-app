@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:vFont="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant_bg"
+    tools:context="com.wagona.maths.MainActivity">
+
+    <include
+        android:id="@+id/headerStrip"
+        layout="@layout/header_stub" />
+
+    <View
+        android:id="@+id/deviderLine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_below="@+id/headerStrip"
+        android:background="@color/colorPrimaryDark">
+
+    </View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/footerStrip"
+        android:layout_below="@+id/deviderLine">
+
+        <LinearLayout
+            android:id="@+id/containerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headerStrip"
+            android:layout_marginLeft="@dimen/dp_35"
+            android:layout_marginRight="@dimen/dp_35"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_20"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/imgProfilePicture"
+                    android:layout_width="@dimen/dp_110"
+                    android:layout_height="@dimen/dp_110"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/social_channels" />
+
+                <com.wagona.maths.custom.CustomTextView
+                    android:id="@+id/textUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:gravity="center"
+                    android:text="Irvin J. Massey"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_22"
+                    vFont:typeface="trebuchet_bold" />
+
+                <View
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_05"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:background="@drawable/shadow_bg">
+
+                </View>
+
+            </LinearLayout>
+
+
+                <com.wagona.maths.custom.CustomEditText
+                    android:id="@+id/editName"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edittext_round"
+                    android:drawableLeft="@drawable/user"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:hint="Name"
+                    android:inputType="textEmailAddress"
+                    android:nextFocusRight="@+id/txtSurname"
+                    android:padding="@dimen/dp_18"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_16"
+                    vFont:typeface="trebuchet_bold" />
+
+
+                <com.wagona.maths.custom.CustomEditText
+                    android:id="@+id/editSurname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:visibility="gone"
+                    android:drawableLeft="@drawable/user"
+                    android:background="@drawable/edittext_round"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:hint="Surname"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/dp_18"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="@dimen/sp_16"
+                    vFont:typeface="trebuchet_bold" />
+
+
+
+
+            <com.wagona.maths.custom.CustomEditText
+                android:id="@+id/editUserEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_round"
+                android:drawableLeft="@drawable/mail"
+                android:layout_marginTop="@dimen/dp_10"
+                android:drawablePadding="@dimen/dp_10"
+                android:hint="Username"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/dp_18"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                vFont:typeface="trebuchet_bold" />
+
+            <!--   <com.wagona.maths.custom.CustomEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="@dimen/dp_10"
+                   android:background="@drawable/edittext_round"
+                   android:drawableLeft="@drawable/select_form"
+                   android:drawablePadding="@dimen/dp_10"
+                   android:drawableRight="@drawable/down"
+                   android:hint="Form 3 Maths"
+                   android:inputType="textEmailAddress"
+                   android:padding="@dimen/dp_18"
+                   android:textColor="@color/colorPrimaryDark"
+                   android:textColorHint="@color/colorPrimaryDark"
+                   android:textSize="@dimen/sp_16"
+                   vFont:typeface="trebuchet_bold" />-->
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/edittext_round">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="@dimen/dp_18"
+                    android:paddingLeft="@dimen/dp_18"
+                    android:paddingTop="@dimen/dp_18"
+                    android:src="@drawable/select_form"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/spinnerCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_toEndOf="@+id/imageView3"
+                    android:layout_toRightOf="@+id/imageView3"
+                    android:paddingLeft="@dimen/dp_10" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/edittext_round">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="@dimen/dp_18"
+                    android:paddingLeft="@dimen/dp_18"
+                    android:paddingTop="@dimen/dp_18"
+                    android:src="@drawable/select_form"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/spinnerSyllabus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_toEndOf="@+id/imageView4"
+                    android:layout_toRightOf="@+id/imageView4"
+                    android:paddingLeft="@dimen/dp_10" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/edittext_round">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="@dimen/dp_18"
+                    android:paddingLeft="@dimen/dp_18"
+                    android:paddingTop="@dimen/dp_18"
+                    android:src="@drawable/select_form" />
+
+                <Spinner
+                    android:id="@+id/spinnerForms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_toEndOf="@+id/imageView2"
+                    android:layout_toRightOf="@+id/imageView2"
+                    android:paddingLeft="@dimen/dp_10" />
+
+            </RelativeLayout>
+
+
+            <com.wagona.maths.custom.CustomEditText
+                android:id="@+id/editUserNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/edittext_round"
+                android:drawableLeft="@drawable/mobile"
+                android:drawablePadding="@dimen/dp_15"
+                android:hint="Mobile Number"
+                android:inputType="number"
+                android:padding="@dimen/dp_18"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                vFont:typeface="trebuchet_bold" />
+
+            <com.wagona.maths.custom.CustomEditText
+                android:id="@+id/editUserPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/edittext_round"
+                android:drawableLeft="@drawable/password"
+                android:drawablePadding="@dimen/dp_15"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="@dimen/dp_18"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                vFont:typeface="trebuchet_bold" />
+
+            <com.wagona.maths.custom.CustomEditText
+                android:id="@+id/editUserConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/edittext_round"
+                android:drawableLeft="@drawable/password"
+                android:drawablePadding="@dimen/dp_15"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:padding="@dimen/dp_18"
+                android:textColor="@color/colorPrimaryDark"
+                android:visibility="gone"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                vFont:typeface="trebuchet_bold" />
+
+
+            <com.wagona.maths.custom.CustomTextView
+                android:id="@+id/imageButtonSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/button_round"
+                android:gravity="center"
+                android:padding="@dimen/dp_18"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                vFont:typeface="trebuchet_bold" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <ImageView
+        android:id="@+id/footerStrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/numbers_falling" />
+
+
+</RelativeLayout>
