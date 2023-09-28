@@ -242,7 +242,6 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
 
         weviewAnsFill.getSettings().setJavaScriptEnabled(true);
 
-
         weviewQuestion = (WebView) findViewById(R.id.weviewQuestion);
         weviewQuestion.getSettings().setJavaScriptEnabled(true);
 
