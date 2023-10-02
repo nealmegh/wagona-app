@@ -9,7 +9,7 @@
     android:background="@drawable/gradiant_bg"
     tools:context="com.wagona.maths.assignments.AssignmentsListActivity">
 
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/headerLayoutALA"
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
             android:visibility="gone" />
 
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <View
         android:id="@+id/deviderLine"
@@ -59,10 +59,10 @@
         android:layout_below="@+id/deviderLine"
         android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcv_assignments"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
         <include layout="@layout/null_data_view" />
         <!--<LinearLayout-->

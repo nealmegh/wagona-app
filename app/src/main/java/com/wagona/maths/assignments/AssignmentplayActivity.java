@@ -3,7 +3,6 @@ package com.wagona.maths.assignments;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,8 +48,6 @@ import com.wagona.maths.widget.QuestionNumberBar;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -330,78 +327,54 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
 
     }
 
-        void setWirisEditor(final QuestionsBean questionDetails) {
+    void setWirisEditor(final QuestionsBean questionDetails) {
 
-            String startingTag = "<html style=\"width: 96%; height: 95%;\">\n" +
-                    "    <head>\n" +
-                    "<style type=\"text/css\">body{color: #319208;}</style>" +
-                    "        <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n" +
-                    "        <script type=\"text/javascript\" src=\"file:///android_asset/www/wiriseditor/viewer_offline.js\"></script>\n" +
-                    "        <script type=\"text/javascript\" src=\"file:///android_asset/www/wiriseditor/editor_offline.js\"></script>\n" +
-                    "    </head>\n" +
-                    "    <body style=\"width: 100%; height: 100%\"><div id=\"editorContainer\" style=\"width: 100%; height: 100%;\">";
+        String startingTag = "<html style=\"width: 96%; height: 95%;\">\n" +
+                "    <head>\n" +
+                "<style type=\"text/css\">body{color: #319208;}</style>" +
+                "        <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n" +
+                "        <script type=\"text/javascript\" src=\"file:///android_asset/www/wiriseditor/viewer_offline.js\"></script>\n" +
+                "        <script type=\"text/javascript\" src=\"file:///android_asset/www/wiriseditor/editor_offline.js\"></script>\n" +
+                "    </head>\n" +
+                "    <body style=\"width: 100%; height: 100%\"><div id=\"editorContainer\" style=\"width: 100%; height: 100%;\">";
 
-            String endingTag = "</div><script>\n" +
-                    "           var viewer = new com.wiris.jsEditor.JsViewerMain('file:///android_asset/www/wiriseditor');\n" +
-                    "           var editor = com.wiris.js.JsEditor.newInstance({basePath: 'file:///android_asset/www/wiriseditor','toolbarHidden':true});\n" +
-                    "            editor.insertInto(document.getElementById('editorContainer'));\n" +
-                    "        </script>\n" +
-                    "    </body>\n" +
-                    "</html>";
+        String endingTag = "</div><script>\n" +
+                "           var viewer = new com.wiris.jsEditor.JsViewerMain('file:///android_asset/www/wiriseditor');\n" +
+                "           var editor = com.wiris.js.JsEditor.newInstance({basePath: 'file:///android_asset/www/wiriseditor','toolbarHidden':true});\n" +
+                "            editor.insertInto(document.getElementById('editorContainer'));\n" +
+                "        </script>\n" +
+                "    </body>\n" +
+                "</html>";
 
+        weviewAnsFill.setBackgroundColor(Color.TRANSPARENT);
+        weviewAnsFill.loadDataWithBaseURL(null, startingTag + endingTag, "text/html", "UTF-8", null);
 
+        String test = questionDetails.getFillQuestion();
+        String fillInQuestion = test.replace("<math", "<math wrs:positionable=\"false\"");
+        fillInQuestion = fillInQuestion.replace("<mrow/>", "<mrow wrs:positionable=\"true\"/>");
 
-
-            try {
-            File file = File.createTempFile("AnsFill.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + endingTag).getBytes());
-            weviewAnsFill.setBackgroundColor(Color.TRANSPARENT);
-            weviewAnsFill.loadUrl("file://" + file.getAbsolutePath());
-        } catch (
-                IOException e) {
-            e.printStackTrace();
+        if (mQuestionsBeanList.get(CurrentDisplyQus).getAnswerMathHtml() != null) {
+            fillInQuestion = "editor.setMathML(\"" + mQuestionsBeanList.get(CurrentDisplyQus).getAnswerMathHtml().replace("\"", "\\\"") + "\")";
+        } else {
+            fillInQuestion = "editor.setMathML(\"" + fillInQuestion.replace("\"", "\\\"") + "\")";
         }
 
-            String test = questionDetails.getFillQuestion();
+        final String finalFillInQuestion = fillInQuestion;
 
-            String fillInQuestion = test.replace("<math", "<math wrs:positionable=\"false\"");
-            fillInQuestion = fillInQuestion.replace("<mrow/>", "<mrow wrs:positionable=\"true\"/>");
-
-
-            if (mQuestionsBeanList.get(CurrentDisplyQus).
-
-                    getAnswerMathHtml() != null) {
-                fillInQuestion = "editor.setMathML(\"" + mQuestionsBeanList.get(CurrentDisplyQus).getAnswerMathHtml().replace("\"", "\\\"") + "\")";
-            } else {
-                fillInQuestion = "editor.setMathML(\"" + fillInQuestion.replace("\"", "\\\"") + "\")";
+        weviewAnsFill.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    weviewAnsFill.evaluateJavascript(finalFillInQuestion, new ValueCallback<String>() {
+                        @Override
+                        public void onReceiveValue(String value) {
+                        }
+                    });
+                }
             }
-
-            final String finalFillInQuestion = fillInQuestion;
-
-            LogTag.v("getAnswerMathHtml " + mQuestionsBeanList.get(CurrentDisplyQus).
-
-                    getAnswerMathHtml());
-            LogTag.v("finalFillInQuestion " + finalFillInQuestion);
-
-            weviewAnsFill.setWebViewClient(new WebViewClient() {
-                @Override
-                public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                }
-
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        weviewAnsFill.evaluateJavascript(finalFillInQuestion, new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String value) {
-
-                            }
-                        });
-                    }
-                }
-            });
+        });
     }
+
 
     public static String decodeUnicode(String myString) {
         Properties properties = new Properties();
@@ -421,36 +394,25 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
         } else {
             imageQuestion.setVisibility(View.VISIBLE);
             Glide.with(this).load(preFixImagePath + questionDetails.getQuest_image()).into(imageQuestion);
-
         }
         imageQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String mUrl = preFixImagePath + questionDetails.getQuest_image();
-
                 DisplayMetrics displaymetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
                 int height = displaymetrics.heightPixels;
                 int width = displaymetrics.widthPixels;
-
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(AssignmentplayActivity.this);
                 LayoutInflater inflater = AssignmentplayActivity.this.getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.dialog_image_view, null);
                 alertDialogBuilder.setView(dialogView);
                 AlertDialog alertDialog = alertDialogBuilder.create();
-
                 ImageView mImageView = (ImageView) dialogView.findViewById(R.id.imageQuestionFull);
-
                 alertDialog.show();
-
-                //                LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams((width - (width / 6)), (width - (width / 6)));
-                //                mImageView.setLayoutParams(mLayoutParams);
-
                 Glide.with(AssignmentplayActivity.this).load(mUrl).into(mImageView);
             }
         });
-
 
         txtTestTopicName.setText(removeScript(questionDetails.getTopic_description()));
 
@@ -469,10 +431,6 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
                 "    </body>\n" +
                 "</html>";
 
-
-
-
-
         txtTestQuestion.setText(Html.fromHtml(questionDetails.getQuest_description()));
         ViewTreeObserver vto = txtTestQuestion.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -481,26 +439,16 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
                 txtTestQuestion.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 int width = txtTestQuestion.getMeasuredWidth();
                 int height = txtTestQuestion.getMeasuredHeight();
-
                 LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) txtTestQuestion.getLayoutParams();
                 params.height = height;
                 txtTestQuestion.setLayoutParams(params);
-
-
             }
         });
 
-
-        try {
-            File file = File.createTempFile("question.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + questionDetails.getQuest_description() + endingTag).getBytes());
-            weviewQuestion.setBackgroundColor(Color.TRANSPARENT);
-            weviewQuestion.loadUrl("file://" + file.getAbsolutePath());
-            txtTestQuestion.setVisibility(View.GONE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Load HTML content directly into the WebView
+        weviewQuestion.setBackgroundColor(Color.TRANSPARENT);
+        weviewQuestion.loadDataWithBaseURL(null, startingTag + questionDetails.getQuest_description() + endingTag, "text/html", "UTF-8", null);
+        txtTestQuestion.setVisibility(View.GONE);
     }
 
 
@@ -510,7 +458,7 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
 
         setQuestion(questionDetails);
 
-        LogTag.v("Question Answer "+questionDetails.getQuestAnswer());
+        LogTag.v("Question Answer " + questionDetails.getQuestAnswer());
 
         if (questionDetails.getQuestionType() != null && questionDetails.getQuestionType().equals("fill")) {
             weviewAnsFill.setVisibility(View.VISIBLE);
@@ -521,7 +469,6 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
             weviewAnsFill.setVisibility(View.GONE);
             txtNext.setVisibility(View.GONE);
             llAnswerOption.setVisibility(View.VISIBLE);
-
 
             String startingTag = "<html style=\"width: 96%; height: 95%;\">\n" +
                     "    <head>\n" +
@@ -538,110 +485,88 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
                     "    </body>\n" +
                     "</html>";
 
+            // Load HTML content directly into the WebView for each option
+            weviewAnsA.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsA.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextA() + endingTag, "text/html", "UTF-8", null);
+            txtAnsA.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optiona.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextA() + endingTag).getBytes());
-                weviewAnsA.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsA.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsA.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsB.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsB.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextB() + endingTag, "text/html", "UTF-8", null);
+            txtAnsB.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optionb.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextB() + endingTag).getBytes());
-                weviewAnsB.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsB.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsB.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsC.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsC.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextC() + endingTag, "text/html", "UTF-8", null);
+            txtAnsC.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optionc.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextC() + endingTag).getBytes());
-                weviewAnsC.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsC.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsC.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsD.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsD.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextD() + endingTag, "text/html", "UTF-8", null);
+            txtAnsD.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optiond.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextD() + endingTag).getBytes());
-                weviewAnsD.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsD.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsD.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                File file = File.createTempFile("optiond.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextE() + endingTag).getBytes());
-                weviewAnsE.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsE.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsE.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsE.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsE.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextE() + endingTag, "text/html", "UTF-8", null);
+            txtAnsE.setVisibility(View.GONE);
 
             String PREFIX = "";
             String SUFIX = "";
-
 
             txtAnsA.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextA() + SUFIX));
             txtAnsB.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextB() + SUFIX));
             txtAnsC.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextC() + SUFIX));
             txtAnsD.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextD() + SUFIX));
             txtAnsE.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextE() + SUFIX));
-
         }
 
-
         makeSelectedAns(questionDetails.getAttendAns());
-
-
-        /**
-         * Set Text color and shape for Page numbers
-         * */
 
         questioBar.txtPageNumber[CurrentDisplyQus].setTextColor(Color.WHITE);
         questioBar.txtPageNumber[CurrentDisplyQus].setBackgroundResource(R.drawable.qus_green_round_fill);
 
         setOtherPageNumberColor();
-
-
     }
 
-    private void setOtherPageNumberColor() {
 
-        for (int i = 0; i < mQuestionsBeanList.size(); i++) {
+//    private void setOtherPageNumberColor() {
+//
+//        for (int i = 0; i < mQuestionsBeanList.size(); i++) {
+//            if (i == CurrentDisplyQus) {
+//                continue;
+//            }
+//
+//            if (mQuestionsBeanList.get(i).isAttend()) {
+//
+//                questioBar.txtPageNumber[i].setTextColor(Color.WHITE);
+//                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.round_btn_blue);
+//
+//            } else {
+//                questioBar.txtPageNumber[i].setTextColor(ContextCompat.getColor(AssignmentplayActivity.this, R.color.colorPrimaryDark));
+//                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_green_round_border);
+//            }
+//
+//        }
+//    }
+    private void setOtherPageNumberColor() {
+        int size = mQuestionsBeanList.size();
+
+        // Ensure that questioBar.txtPageNumber has enough elements
+        if(questioBar.txtPageNumber.length < size) {
+            Log.e("ArrayAccess", "questioBar.txtPageNumber does not have enough elements!");
+            return; // or handle this case appropriately
+        }
+
+        for (int i = 0; i < size; i++) {
             if (i == CurrentDisplyQus) {
                 continue;
             }
 
-            if (mQuestionsBeanList.get(i).isAttend()) {
-
+            if (mQuestionsBeanList.get(i).getQuestAnswer().equalsIgnoreCase(mQuestionsBeanList.get(i).getUserAnswer())) {
                 questioBar.txtPageNumber[i].setTextColor(Color.WHITE);
-                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.round_btn_blue);
-
+                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_green_round_fill);
             } else {
-                questioBar.txtPageNumber[i].setTextColor(ContextCompat.getColor(AssignmentplayActivity.this, R.color.colorPrimaryDark));
-                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_green_round_border);
+                questioBar.txtPageNumber[i].setTextColor(Color.WHITE);
+                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_red_round_fill);
             }
-
         }
     }
-
     private void setAnsClickListner() {
         layoutAnsA.setOnClickListener(mAnsListner);
         layoutAnsB.setOnClickListener(mAnsListner);
@@ -884,7 +809,7 @@ public class AssignmentplayActivity extends BaseActivity implements CustomWebVie
     }
 
     private void makeSelectedAns(String ans) {
-
+        Log.e("hi-bi", "Error message 222232");
         clearOldRecordAns();
 
         if (ans.equalsIgnoreCase("A")) {

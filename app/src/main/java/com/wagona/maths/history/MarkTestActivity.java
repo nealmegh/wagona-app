@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -41,9 +42,6 @@ import com.wagona.maths.widget.QuestionNumberBar;
 
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -291,30 +289,18 @@ public class MarkTestActivity extends BaseActivity {
 
         String rightAnswer = "";
 
-        //textContactAddress.setText(mSocialLinkList.get(5).toString());
-
         txtRightAns.setText(mQuestionsBeanList.get(CurrentDisplyQus).getQuestAnswer().toUpperCase() + "");
 
         if (mQuestionsBeanList.get(CurrentDisplyQus).getQuestAnswer().equalsIgnoreCase("a")) {
-
             rightAnswer = mQuestionsBeanList.get(CurrentDisplyQus).getOptionTextA() + "";
-
         } else if (mQuestionsBeanList.get(CurrentDisplyQus).getQuestAnswer().equalsIgnoreCase("b")) {
-
             rightAnswer = mQuestionsBeanList.get(CurrentDisplyQus).getOptionTextB() + "";
-
         } else if (mQuestionsBeanList.get(CurrentDisplyQus).getQuestAnswer().equalsIgnoreCase("c")) {
-
             rightAnswer = mQuestionsBeanList.get(CurrentDisplyQus).getOptionTextC() + "";
-
         } else if (mQuestionsBeanList.get(CurrentDisplyQus).getQuestAnswer().equalsIgnoreCase("d")) {
-
             rightAnswer = mQuestionsBeanList.get(CurrentDisplyQus).getOptionTextD() + "";
-
         } else if (mQuestionsBeanList.get(CurrentDisplyQus).getQuestAnswer().equalsIgnoreCase("e")) {
-
             rightAnswer = mQuestionsBeanList.get(CurrentDisplyQus).getOptionTextE() + "";
-
         }
 
         textAnsContent.setText(Html.fromHtml(rightAnswer));
@@ -334,34 +320,18 @@ public class MarkTestActivity extends BaseActivity {
                 "    </body>\n" +
                 "</html>";
 
+        // Load the HTML content directly into the WebView using loadDataWithBaseURL
+        String ansContentHtml = startingTag + rightAnswer + endingTag;
+        weviewAnsContent.loadDataWithBaseURL(null, ansContentHtml, "text/html", "UTF-8", null);
+        textAnsContent.setVisibility(View.GONE);
 
-        try {
-            File file = File.createTempFile("ansContent.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + rightAnswer + endingTag).getBytes());
-            weviewAnsContent.setBackgroundColor(Color.TRANSPARENT);
-            weviewAnsContent.loadUrl("file://" + file.getAbsolutePath());
-            textAnsContent.setVisibility(View.GONE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            File file = File.createTempFile("ansDetailContent.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + mQuestionsBeanList.get(CurrentDisplyQus).getMiscon() + endingTag).getBytes());
-            weviewContent.setBackgroundColor(Color.TRANSPARENT);
-            weviewContent.loadUrl("file://" + file.getAbsolutePath());
-            textContent.setVisibility(View.GONE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        String ansDetailContentHtml = startingTag + mQuestionsBeanList.get(CurrentDisplyQus).getMiscon() + endingTag;
+        weviewContent.loadDataWithBaseURL(null, ansDetailContentHtml, "text/html", "UTF-8", null);
+        textContent.setVisibility(View.GONE);
 
         textContent.setText(Html.fromHtml(mQuestionsBeanList.get(CurrentDisplyQus).getMiscon()));
-
-
     }
+
 
 
     public void setHeaderData(final QuizHeaderBean headerData) {
@@ -409,7 +379,7 @@ public class MarkTestActivity extends BaseActivity {
     private Toolbar toolbar;
 
     void setQuestion(final QuestionsBean questionDetails) {
-
+        Log.e("WEB_ERROR", "Error message 1");
         try {
             txtTestTopicName.setText(removeScript(questionDetails.getDescription()));
         } catch (Exception e) {
@@ -421,14 +391,12 @@ public class MarkTestActivity extends BaseActivity {
         } else {
             imageQuestion.setVisibility(View.VISIBLE);
             Glide.with(this).load(preFixImagePath + questionDetails.getQuest_image()).into(imageQuestion);
-
         }
+
         imageQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String mUrl = preFixImagePath + questionDetails.getQuest_image();
-
                 DisplayMetrics displaymetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
                 int height = displaymetrics.heightPixels;
@@ -441,11 +409,7 @@ public class MarkTestActivity extends BaseActivity {
                 AlertDialog alertDialog = alertDialogBuilder.create();
 
                 ImageView mImageView = (ImageView) dialogView.findViewById(R.id.imageQuestionFull);
-
                 alertDialog.show();
-
-//                LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams((width - (width / 6)), (width - (width / 6)));
-//                mImageView.setLayoutParams(mLayoutParams);
 
                 Glide.with(MarkTestActivity.this).load(mUrl).into(mImageView);
             }
@@ -466,17 +430,9 @@ public class MarkTestActivity extends BaseActivity {
                 "    </body>\n" +
                 "</html>";
 
-
-        try {
-            File file = File.createTempFile("question.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + questionDetails.getQuest_description() + endingTag).getBytes());
-            weviewQuestion.setBackgroundColor(Color.TRANSPARENT);
-            weviewQuestion.loadUrl("file://" + file.getAbsolutePath());
-            txtTestQuestion.setVisibility(View.GONE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String htmlContent = startingTag + questionDetails.getQuest_description() + endingTag;
+        weviewQuestion.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
+        txtTestQuestion.setVisibility(View.GONE);
 
         txtTestQuestion.setText(Html.fromHtml(questionDetails.getQuest_description()));
 
@@ -491,15 +447,14 @@ public class MarkTestActivity extends BaseActivity {
                 LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) txtTestQuestion.getLayoutParams();
                 params.height = height;
                 txtTestQuestion.setLayoutParams(params);
-
-
             }
         });
     }
 
 
-    public void setQuestionDetails(final QuestionsBean questionDetails) {
 
+    public void setQuestionDetails(final QuestionsBean questionDetails) {
+        Log.e("WEB_ERROR", "Error message 22");
         setQuestion(questionDetails);
 
         String startingTag = "<html style=\"width: 96%; height: 95%;\">\n" +
@@ -517,45 +472,29 @@ public class MarkTestActivity extends BaseActivity {
                 "    </body>\n" +
                 "</html>";
 
-
         llCorrectAnswer.setVisibility(View.GONE);
 
         if (questionDetails.getQuestionType() != null && questionDetails.getQuestionType().equals("fill")) {
             weviewYourAnswerFill.setVisibility(View.VISIBLE);
             llAnswerOption.setVisibility(View.GONE);
-            //setWirisEditor(questionDetails);
             ivYourAnswerStatus.setVisibility(View.VISIBLE);
 
-            try {
-                File file = File.createTempFile("optiona.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getUserAnswer() + endingTag).getBytes());
-                weviewYourAnswerFill.setBackgroundColor(Color.TRANSPARENT);
-                weviewYourAnswerFill.loadUrl("file://" + file.getAbsolutePath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String userAnswerHtml = startingTag + questionDetails.getUserAnswer() + endingTag;
+            weviewYourAnswerFill.loadDataWithBaseURL(null, userAnswerHtml, "text/html", "UTF-8", null);
+            weviewYourAnswerFill.setBackgroundColor(Color.TRANSPARENT);
+            txtAnsA.setVisibility(View.GONE);
 
             if (questionDetails.getQuestAnswer().equalsIgnoreCase(questionDetails.getUserAnswer())) {
                 ivYourAnswerStatus.setImageResource(R.drawable.right_sign);
             } else {
                 ivYourAnswerStatus.setImageResource(R.drawable.wrong_sign);
-
                 llCorrectAnswer.setVisibility(View.VISIBLE);
 
-                try {
-                    File file = File.createTempFile("correct_answer.html", "", this.getCacheDir());
-                    FileOutputStream stream = new FileOutputStream(file);
-                    stream.write((startingTag + questionDetails.getQuestAnswer() + endingTag).getBytes());
-                    weviewCorrectAnswerFill.setBackgroundColor(Color.TRANSPARENT);
-                    weviewCorrectAnswerFill.loadUrl("file://" + file.getAbsolutePath());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                String correctAnswerHtml = startingTag + questionDetails.getQuestAnswer() + endingTag;
+                weviewCorrectAnswerFill.loadDataWithBaseURL(null, correctAnswerHtml, "text/html", "UTF-8", null);
+                weviewCorrectAnswerFill.setBackgroundColor(Color.TRANSPARENT);
             }
-
         } else {
-
             ivYourAnswerStatus.setVisibility(View.GONE);
             weviewYourAnswerFill.setVisibility(View.GONE);
             llAnswerOption.setVisibility(View.VISIBLE);
@@ -566,74 +505,14 @@ public class MarkTestActivity extends BaseActivity {
             imgD.setVisibility(View.INVISIBLE);
             imgE.setVisibility(View.INVISIBLE);
 
-
             String PREFIX = "";
             String SUFIX = "";
 
-
-            txtAnsA.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextA() + SUFIX));
-            //txtAnsA.setText(Html.fromHtml("<sup>1</sup>&frasl;<sub>10</sub>"));
-
-            try {
-                File file = File.createTempFile("optiona.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextA() + endingTag).getBytes());
-                weviewOptA.setBackgroundColor(Color.TRANSPARENT);
-                weviewOptA.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsA.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                File file = File.createTempFile("optionb.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextB() + endingTag).getBytes());
-                weviewOptB.setBackgroundColor(Color.TRANSPARENT);
-                weviewOptB.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsB.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                File file = File.createTempFile("optionc.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextC() + endingTag).getBytes());
-                weviewOptC.setBackgroundColor(Color.TRANSPARENT);
-                weviewOptC.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsC.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                File file = File.createTempFile("optiond.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextD() + endingTag).getBytes());
-                weviewOptD.setBackgroundColor(Color.TRANSPARENT);
-                weviewOptD.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsD.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                File file = File.createTempFile("optiond.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextE() + endingTag).getBytes());
-                weviewOptE.setBackgroundColor(Color.TRANSPARENT);
-                weviewOptE.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsE.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-            txtAnsB.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextB() + SUFIX));
-            txtAnsC.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextC() + SUFIX));
-            txtAnsD.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextD() + SUFIX));
-            txtAnsE.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextE() + SUFIX));
+            loadWebViewContent(weviewOptA, startingTag + questionDetails.getOptionTextA() + endingTag, txtAnsA);
+            loadWebViewContent(weviewOptB, startingTag + questionDetails.getOptionTextB() + endingTag, txtAnsB);
+            loadWebViewContent(weviewOptC, startingTag + questionDetails.getOptionTextC() + endingTag, txtAnsC);
+            loadWebViewContent(weviewOptD, startingTag + questionDetails.getOptionTextD() + endingTag, txtAnsD);
+            loadWebViewContent(weviewOptE, startingTag + questionDetails.getOptionTextE() + endingTag, txtAnsE);
         }
 
         clearOldRecordAns();
@@ -670,7 +549,11 @@ public class MarkTestActivity extends BaseActivity {
 
 
     }
-
+    private void loadWebViewContent(WebView webView, String htmlContent, TextView textView) {
+        webView.loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null);
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        textView.setVisibility(View.GONE);
+    }
     private void showRightSignWrongSignBoth(String right_ans, String user_answer) {
 
         switch (right_ans.toLowerCase()) {

@@ -4,6 +4,7 @@ package com.wagona.maths.history;
  * Created by Amit on 15/3/16.
  */
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -137,7 +138,7 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         if(holder instanceof CustomViewHolder){
 
@@ -198,6 +199,7 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setArrayListData(List<TestHistoryBean> mTestHistoryBeans) {
 
         this.mTestHistoryBeans=mTestHistoryBeans;

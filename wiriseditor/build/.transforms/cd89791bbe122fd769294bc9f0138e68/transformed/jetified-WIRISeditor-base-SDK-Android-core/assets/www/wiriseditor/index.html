@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>WIRIS editor - offline</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Editor, equation, formula, MathML, LaTeX, conversion, convert, transform, transformation, view, WIRIS, flash, PNG" /> 
+		<meta name="description" content="WIRIS editor" />
+		<style type="text/css">
+		html, body {
+			height:100%;
+			font-family: 'Segoe UI',Arial,Helvetica,sans-serif;
+		}
+		body {
+			background: url("images/body_background.png") repeat-x top #eeeeee;
+			width:600px;
+			margin:auto;
+		}
+		div.main {
+			padding:1em;
+			margin-top: 10px;
+			background-color:white;
+		}
+		a {
+			text-decoration:none;
+			color: #546b77;
+		}
+		</style>
+		<script type="text/javascript" src="editor_offline.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<p>
+				<a href="http://www.wiris.com/editor/docs/offline"><img style="vertical-align:-5px" height="24" src="images/WIRIS_editor_text.png"/> WIRIS editor - offline</a>
+			</p>
+			<div style="height:300px;width:550px" id="editorContainer"></div>
+			<script type="text/javaScript">
+				editor = com.wiris.jsEditor.JsEditor.newInstance({
+							'basePath': '',
+							'toolbar':'evaluate'
+						});
+				editor.insertInto(document.getElementById('editorContainer'));
+				editor.setMathML("<math><mfrac><msqrt><mi>x</mi></msqrt><mrow><mi>y</mi><mo>-</mo><mn>1</mn></mrow></mfrac></math>");
+			</script>
+			<p>
+			<input type="button" value="get mathml" onclick="document.getElementById('mathml').value=editor.getMathML()">
+			</p>
+			<textarea style="height:100px;width:545px" id="mathml"></textarea>
+		</div>
+	</body>
+</html>
