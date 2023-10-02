@@ -207,7 +207,7 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TestplayActivity.this);
         alertDialogBuilder.setTitle(getResources().getString(R.string.app_name));
         alertDialogBuilder
-                .setMessage("Are you sure you want to close this test?")
+                .setMessage("Are you sure you want to close this test???")
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -400,38 +400,27 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
         } else {
             imageQuestion.setVisibility(View.VISIBLE);
             Glide.with(this).load(preFixImagePath + questionDetails.getQuest_image()).into(imageQuestion);
-
         }
         imageQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String mUrl = preFixImagePath + questionDetails.getQuest_image();
-
                 DisplayMetrics displaymetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
                 int height = displaymetrics.heightPixels;
                 int width = displaymetrics.widthPixels;
-
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TestplayActivity.this);
                 LayoutInflater inflater = TestplayActivity.this.getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.dialog_image_view, null);
                 alertDialogBuilder.setView(dialogView);
                 AlertDialog alertDialog = alertDialogBuilder.create();
-
                 ImageView mImageView = (ImageView) dialogView.findViewById(R.id.imageQuestionFull);
-
                 alertDialog.show();
-
-                //                LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams((width - (width / 6)), (width - (width / 6)));
-                //                mImageView.setLayoutParams(mLayoutParams);
-
                 Glide.with(TestplayActivity.this).load(mUrl).into(mImageView);
             }
         });
 
-
-        txtTestTopicName.setText(removeScript(questionDetails.getDescription()));
+        txtTestTopicName.setText(removeScript(questionDetails.getTopic_description()));
 
         String startingTag = "<html style=\"width: 96%; height: 95%;\">\n" +
                 "    <head>\n" +
@@ -456,26 +445,16 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
                 txtTestQuestion.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 int width = txtTestQuestion.getMeasuredWidth();
                 int height = txtTestQuestion.getMeasuredHeight();
-
                 LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) txtTestQuestion.getLayoutParams();
                 params.height = height;
                 txtTestQuestion.setLayoutParams(params);
-
-
             }
         });
 
-
-        try {
-            File file = File.createTempFile("question.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + questionDetails.getQuest_description() + endingTag).getBytes());
-            weviewQuestion.setBackgroundColor(Color.TRANSPARENT);
-            weviewQuestion.loadUrl("file://" + file.getAbsolutePath());
-            txtTestQuestion.setVisibility(View.GONE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Load HTML content directly into the WebView
+        weviewQuestion.setBackgroundColor(Color.TRANSPARENT);
+        weviewQuestion.loadDataWithBaseURL(null, startingTag + questionDetails.getQuest_description() + endingTag, "text/html", "UTF-8", null);
+        txtTestQuestion.setVisibility(View.GONE);
     }
 
 
@@ -495,7 +474,6 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
             txtNext.setVisibility(View.GONE);
             llAnswerOption.setVisibility(View.VISIBLE);
 
-
             String startingTag = "<html style=\"width: 96%; height: 95%;\">\n" +
                     "    <head>\n" +
                     "<style type=\"text/css\">body{color: #319208;}</style>" +
@@ -511,107 +489,85 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
                     "    </body>\n" +
                     "</html>";
 
+            // Load HTML content directly into the WebView for each option
+            weviewAnsA.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsA.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextA() + endingTag, "text/html", "UTF-8", null);
+            txtAnsA.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optiona.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextA() + endingTag).getBytes());
-                weviewAnsA.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsA.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsA.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsB.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsB.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextB() + endingTag, "text/html", "UTF-8", null);
+            txtAnsB.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optionb.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextB() + endingTag).getBytes());
-                weviewAnsB.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsB.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsB.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsC.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsC.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextC() + endingTag, "text/html", "UTF-8", null);
+            txtAnsC.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optionc.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextC() + endingTag).getBytes());
-                weviewAnsC.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsC.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsC.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsD.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsD.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextD() + endingTag, "text/html", "UTF-8", null);
+            txtAnsD.setVisibility(View.GONE);
 
-            try {
-                File file = File.createTempFile("optiond.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextD() + endingTag).getBytes());
-                weviewAnsD.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsD.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsD.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                File file = File.createTempFile("optiond.html", "", this.getCacheDir());
-                FileOutputStream stream = new FileOutputStream(file);
-                stream.write((startingTag + questionDetails.getOptionTextE() + endingTag).getBytes());
-                weviewAnsE.setBackgroundColor(Color.TRANSPARENT);
-                weviewAnsE.loadUrl("file://" + file.getAbsolutePath());
-                txtAnsE.setVisibility(View.GONE);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            weviewAnsE.setBackgroundColor(Color.TRANSPARENT);
+            weviewAnsE.loadDataWithBaseURL(null, startingTag + questionDetails.getOptionTextE() + endingTag, "text/html", "UTF-8", null);
+            txtAnsE.setVisibility(View.GONE);
 
             String PREFIX = "";
             String SUFIX = "";
-
 
             txtAnsA.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextA() + SUFIX));
             txtAnsB.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextB() + SUFIX));
             txtAnsC.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextC() + SUFIX));
             txtAnsD.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextD() + SUFIX));
             txtAnsE.setText(Html.fromHtml(PREFIX + questionDetails.getOptionTextE() + SUFIX));
-
         }
 
-
         makeSelectedAns(questionDetails.getAttendAns());
-
-
-        /**
-         * Set Text color and shape for Page numbers
-         * */
 
         questioBar.txtPageNumber[CurrentDisplyQus].setTextColor(Color.WHITE);
         questioBar.txtPageNumber[CurrentDisplyQus].setBackgroundResource(R.drawable.qus_green_round_fill);
 
         setOtherPageNumberColor();
-
-
     }
 
+//    private void setOtherPageNumberColor() {
+//
+//        for (int i = 0; i < mQuestionsBeanList.size(); i++) {
+//            if (i == CurrentDisplyQus) {
+//                continue;
+//            }
+//
+//            if (mQuestionsBeanList.get(i).isAttend()) {
+//
+//                questioBar.txtPageNumber[i].setTextColor(Color.WHITE);
+//                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.round_btn_blue);
+//
+//            } else {
+//                questioBar.txtPageNumber[i].setTextColor(ContextCompat.getColor(TestplayActivity.this, R.color.colorPrimaryDark));
+//                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_green_round_border);
+//            }
+//
+//        }
+//    }
     private void setOtherPageNumberColor() {
+        int size = mQuestionsBeanList.size();
 
-        for (int i = 0; i < mQuestionsBeanList.size(); i++) {
+        // Ensure that questioBar.txtPageNumber has enough elements
+        if(questioBar.txtPageNumber.length < size) {
+            Log.e("ArrayAccess", "questioBar.txtPageNumber does not have enough elements!");
+            return; // or handle this case appropriately
+        }
+
+        for (int i = 0; i < size; i++) {
             if (i == CurrentDisplyQus) {
                 continue;
             }
 
-            if (mQuestionsBeanList.get(i).isAttend()) {
-
+            if (mQuestionsBeanList.get(i).getQuestAnswer().equalsIgnoreCase(mQuestionsBeanList.get(i).getUserAnswer())) {
                 questioBar.txtPageNumber[i].setTextColor(Color.WHITE);
-                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.round_btn_blue);
-
+                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_green_round_fill);
             } else {
-                questioBar.txtPageNumber[i].setTextColor(ContextCompat.getColor(TestplayActivity.this, R.color.colorPrimaryDark));
-                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_green_round_border);
+                questioBar.txtPageNumber[i].setTextColor(Color.WHITE);
+                questioBar.txtPageNumber[i].setBackgroundResource(R.drawable.qus_red_round_fill);
             }
-
         }
     }
 
