@@ -857,7 +857,13 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
     private String removeScript(String content) {
         Pattern p = Pattern.compile("[0-9]+.",
                 Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
-        return p.matcher(content).replaceAll("");
+       // return p.matcher(content).replaceAll("");
+        //return p.pattern();
+        if (content != null) {
+            return p.matcher(content).replaceAll("");
+        }else {
+            return p.pattern();
+        }
     }
 
 
