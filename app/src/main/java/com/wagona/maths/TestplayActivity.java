@@ -45,8 +45,6 @@ import com.wagona.maths.widget.QuestionNumberBar;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -331,37 +329,22 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
                 "    </body>\n" +
                 "</html>";
 
-
-        try {
-            File file = File.createTempFile("AnsFill.html", "", this.getCacheDir());
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.write((startingTag + endingTag).getBytes());
-            weviewAnsFill.setBackgroundColor(Color.TRANSPARENT);
-            weviewAnsFill.loadUrl("file://" + file.getAbsolutePath());
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }
+        // Load HTML content directly into the WebView
+        weviewAnsFill.setBackgroundColor(Color.TRANSPARENT);
+        weviewAnsFill.loadDataWithBaseURL(null, startingTag + endingTag, "text/html", "UTF-8", null);
 
         String test = questionDetails.getFillQuestion();
 
         String fillInQuestion = test.replace("<math", "<math wrs:positionable=\"false\"");
         fillInQuestion = fillInQuestion.replace("<mrow/>", "<mrow wrs:positionable=\"true\"/>");
 
-        if (mQuestionsBeanList.get(CurrentDisplyQus).
-
-                getAnswerMathHtml() != null) {
+        if (mQuestionsBeanList.get(CurrentDisplyQus).getAnswerMathHtml() != null) {
             fillInQuestion = "editor.setMathML(\"" + mQuestionsBeanList.get(CurrentDisplyQus).getAnswerMathHtml().replace("\"", "\\\"") + "\")";
         } else {
             fillInQuestion = "editor.setMathML(\"" + fillInQuestion.replace("\"", "\\\"") + "\")";
         }
 
         final String finalFillInQuestion = fillInQuestion;
-
-        LogTag.v("getAnswerMathHtml " + mQuestionsBeanList.get(CurrentDisplyQus).
-
-                getAnswerMathHtml());
-        LogTag.v("finalFillInQuestion " + finalFillInQuestion);
 
         weviewAnsFill.setWebViewClient(new WebViewClient() {
             @Override
@@ -381,6 +364,7 @@ public class TestplayActivity extends BaseActivity implements CustomWebView.KeyL
             }
         });
     }
+
 
     public static String decodeUnicode(String myString) {
         Properties properties = new Properties();
