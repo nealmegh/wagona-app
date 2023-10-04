@@ -79,7 +79,7 @@ public class TopicsActivity extends BaseActivity /*implements IabBroadcastReceiv
             }
         });
 
-        setUpInappThings();
+        //setUpInappThings();
 
         callTopicListApi();
 
@@ -105,7 +105,7 @@ public class TopicsActivity extends BaseActivity /*implements IabBroadcastReceiv
     static final String SKU_GAS = "android.test.purchased";
     static final int RC_REQUEST = 10001;
 
-    private void setUpInappThings() {
+    /*private void setUpInappThings() {
 
         String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjHKmtfDX/rCaEOCD3ggCAwvRv1sXVkuhdtBq9Ee4mX7Q6fqh1wVZL5N16cyT2Xexq+KHKY2io3IKQSQ6HyEYvq/ifwRZRMavUQh59BjBH8CI6eeRJU6yO3gMextWH/gNO77j+6a0GJxHiQ3jtV1h0ivHRf56zGBLrNqp8GLMEjB1DPXaVlHl2cGTssmsCgz+i8Cfes6YRLroPhV0TozScsEPHLpyPgczNGVB/Pajtjf1QzvuclniKC8SxlcQmo08Snklw7QsAySTFHD1k+MdnuuE02QUCSArqYYt4CAAfR/b0g5YIYANMs6JKxNd9F1EneYbn1q5djMgWHV+jNvDRQIDAQAB";
 
@@ -121,17 +121,17 @@ public class TopicsActivity extends BaseActivity /*implements IabBroadcastReceiv
                 }
                 if (mHelper == null) return;
 
-                /*mBroadcastReceiver = new IabBroadcastReceiver(TopicsActivity.this);
+                *//*mBroadcastReceiver = new IabBroadcastReceiver(TopicsActivity.this);
                 IntentFilter broadcastFilter = new IntentFilter(IabBroadcastReceiver.ACTION);
                 registerReceiver(mBroadcastReceiver, broadcastFilter);
                 try {
                     mHelper.queryInventoryAsync(mGotInventoryListener);
                 } catch (IabHelper.IabAsyncInProgressException e) {
                     complain("Error querying inventory. Another async operation in progress.");
-                }*/
+                }*//*
             }
         });
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
